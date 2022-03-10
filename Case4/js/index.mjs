@@ -1,6 +1,11 @@
-function toggleShowCompletedHandler (event) {
+function toggleShowCompletedHandler(event) {
     const completedElements = document.querySelectorAll(".completed");
-    for ( let item of completedElements ) {
+    event.preventDefault()
+    for (let item of completedElements) {
         item.classList.toggle("hidden");
     }
 }
+
+// botonDisparador como objeto  
+botonDisparador.addEventListener("click", toggleShowCompletedHandler);
+ 
