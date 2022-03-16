@@ -1,17 +1,18 @@
 import { getTasks, setTasks } from "./models.mjs";
 
 export function dataToHTMLList (array) {
-    const HTMLElements = array.map(
-        (item) => {
+    const HTMLElements = array.map((item) => {
             const li = document.createElement("li");
             li.innerText = item.description;
-            if (item.completed) li.classList.add("completed")
+            if (item.completed) li.classList.add("completed");
             return li;
         }
     )
-    const htmlParent = document.querySelector("#taskList")
+    const htmlParent = document.querySelector("#taskList");
     htmlParent.innerHTML = "";
     htmlParent.append(...HTMLElements);
+    document.querySelector("button").addEventListener("click", removeCompletedHandler);
+    
 }
 
 export function removeCompletedHandler (event) {
